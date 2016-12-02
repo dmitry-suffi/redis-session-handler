@@ -12,7 +12,7 @@
 ---------
 
 ```
-composer require dmitry-suffi/RedisSessionHandler
+composer require dmitry-suffi/redis-session-handler
 ```
 
 Использование
