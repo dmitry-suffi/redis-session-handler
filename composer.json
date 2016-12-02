@@ -1,0 +1,13 @@
+{
+    "name": "dmitry-suffi/RedisSessionHandler",
+    "description": "Обработчик сессий через Redis с механизмом блокировки",
+    "license": "MIT",
+    "keywords": ["redis", "session"],
+    "homepage": "https://github.com/dmitry-suffi/RedisSessionHandler",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "suffi\\RedisSessionHandler\\": "src\\"
+        }
+    }
+}
