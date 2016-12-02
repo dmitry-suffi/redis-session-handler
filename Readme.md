@@ -22,7 +22,7 @@ composer require dmitry-suffi/RedisSessionHandler
 
 
 $redis = new Redis();
-if ($redis->pconnect('11.111.111.11', 6379') && $redis->select(0)) {
+if ($redis->pconnect('11.111.111.11', 6379) && $redis->select(0)) {
     $handler = new \suffi\RedisSessionHandler\RedisSessionHandler($redis);
     session_set_save_handler($handler);
 }
