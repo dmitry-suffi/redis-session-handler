@@ -62,7 +62,7 @@ class RedisSessionHandler implements \SessionHandlerInterface
      * @param string $prefix
      * @param int $spinLockWait
      */
-    public function __construct(\Redis $redis, $prefix = 'session_key', $spinLockWait = 200000)
+    public function __construct(\Redis $redis, $prefix = 'PHPREDIS_SESSION:', $spinLockWait = 200000)
     {
         $this->redis = $redis;
 
