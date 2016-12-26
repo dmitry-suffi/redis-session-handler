@@ -1,22 +1,23 @@
-Обработчик сессий через Redis с механизмом блокировки
-=====================================================
+Redis session handler through a locking mechanism
+=================================================
 
 
-Описание
----------
-Используется для хранения сессий php в редисе.
+Description
+-----------
+Used to store php sessions radishes.
 
-Добавлен механизм блокировок: пока один процесс работает с сессией, второй процесс ожидает.
+The mechanism locks: one is the process of working with the session, the second process is waiting.
 
-Установка
----------
+
+Installation
+------------
 
 ```
 composer require dmitry-suffi/redis-session-handler
 ```
 
-Использование
--------------
+Using
+-----
 
 ```php
 
@@ -30,4 +31,3 @@ if ($redis->connect('11.111.111.11', 6379) && $redis->select(0)) {
 session_start();
 
 ```
-

@@ -9,49 +9,49 @@ namespace suffi\RedisSessionHandler;
 class RedisSessionHandler implements \SessionHandlerInterface
 {
     /**
-     * Инстанс редиса
+     * instance Redis
      * @var \Redis
      */
     protected $redis;
 
     /**
-     * Время жизни сессии
+     * The lifetime of the session
      * @var int
      */
     protected $ttl;
 
     /**
-     * Префикс
+     * Prefix
      * @var string
      */
     protected $prefix;
 
     /**
-     * Флаг блокировки
+     * lock flag
      * @var bool
      */
     protected $locked;
 
     /**
-     * Ключ блокировки
+     * key lock
      * @var string
      */
     private $lockKey;
 
     /**
-     * Токен блокировки
+     * token locking
      * @var string
      */
     private $token;
 
     /**
-     * Время между попытками разблокировки
+     * The time between attempts to unlock
      * @var int
      */
     private $spinLockWait;
 
     /**
-     * Максимальное время ожидания разблокировки
+     * Maximum waiting time unlock
      * @var int
      */
     private $lockMaxWait;
@@ -99,7 +99,7 @@ class RedisSessionHandler implements \SessionHandlerInterface
                 $this->getRedisKey($this->lockKey),
                 $this->token,
                 [
-                    'NX', //Установить ключ только, если он уже не существует.
+                    'NX',
                 ]
             );
             if ($success) {
@@ -112,7 +112,7 @@ class RedisSessionHandler implements \SessionHandlerInterface
     }
 
     /**
-     * Снятие блокировки сессии
+     * Unlock Session
      */
     private function unlockSession()
     {
@@ -190,7 +190,7 @@ LUA;
     }
 
     /**
-     * Установка времени жизни сессии
+     * Setting Time session life
      * @param int $ttl
      */
     public function setTtl($ttl)
@@ -199,7 +199,7 @@ LUA;
     }
 
     /**
-     * Максимальное время ожидания разблокировки
+     * Maximum waiting time unlock
      * @return int
      */
     public function getLockMaxWait()
@@ -208,7 +208,7 @@ LUA;
     }
 
     /**
-     * Максимальное время ожидания разблокировки
+     * Setting maximum waiting time unlock
      * @param int $lockMaxWait
      */
     public function setLockMaxWait($lockMaxWait)
@@ -217,7 +217,7 @@ LUA;
     }
 
     /**
-     * Подготовка ключа
+     * Preparation key
      * @param string $key key
      * @return string prefixed key
      */
