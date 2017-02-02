@@ -124,7 +124,7 @@ else
 end
 LUA;
 
-        $this->redis->eval($script, array($this->getRedisKey($this->lockKey), $this->token), 1);
+        $this->redis->eval($script, array($this->getRedisKey($this->lockKey), $this->redis->_serialize($this->token)), 1);
 
         $this->locked = false;
         $this->token = null;
