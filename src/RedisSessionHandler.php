@@ -66,7 +66,7 @@ class RedisSessionHandler implements \SessionHandlerInterface
     {
         $this->redis = $redis;
 
-        $this->ttl = ini_get('gc_maxlifetime');
+        $this->ttl = ini_get('session.gc_maxlifetime');
         $iniMaxExecutionTime = ini_get('max_execution_time');
         $this->lockMaxWait = $iniMaxExecutionTime ? $iniMaxExecutionTime * 0.7 : 20;
 
