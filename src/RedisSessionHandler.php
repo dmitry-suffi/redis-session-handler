@@ -74,7 +74,6 @@ class RedisSessionHandler implements \SessionHandlerInterface
         $this->locked = false;
         $this->lockKey = null;
         $this->spinLockWait = $spinLockWait;
-
     }
 
     /**
@@ -124,7 +123,7 @@ else
 end
 LUA;
 
-        $this->redis->eval($script, array($this->getRedisKey($this->lockKey), $this->redis->_serialize($this->token)), 1);
+        $this->redis->eval($script, [$this->getRedisKey($this->lockKey), $this->redis->_serialize($this->token)], 1);
 
         $this->locked = false;
         $this->token = null;

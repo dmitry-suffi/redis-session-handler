@@ -9,5 +9,10 @@
         "psr-4": {
             "suffi\\RedisSessionHandler\\": "src\\"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "suffi\\RedisSessionHandler\\Tests": "tests\\"
+        }
     }
 }

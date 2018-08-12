@@ -1,5 +1,7 @@
 <?php
 
+namespace suffi\RedisSessionHandler\Tests;
+
 use \suffi\RedisSessionHandler\RedisSessionHandler;
 
 class RedisSessionHandlerTest extends \PHPUnit\Framework\TestCase
@@ -40,5 +42,4 @@ class RedisSessionHandlerTest extends \PHPUnit\Framework\TestCase
         $handler1->close();
         $this->assertEquals($handler2->read($sessionId), 'session data');
     }
-
 }
